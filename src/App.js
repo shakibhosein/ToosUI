@@ -1,24 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
+import {React, useMemo} from "react";
+import InstallmentsPage from "./Pages/Installments";
+import ParvandePage from "./Pages/Parvande";
+import Persons from "./Pages/Persons"
+import TableTemplate from "./Pages/React-Table";
+import {Routes, Route} from "react-router-dom"
+import PersonsTable from "./Pages/PersonsReactTable";
 
+
+const columns = [
+        {
+            Header:"ID", // columns Name that will be displayed to help identify each column
+            accessorKey: 'id'// this is the key in our data. This is what will be used to assign each value to a column.
+        },
+        // {
+        //     Header:"First Name",
+        //     accessorKey: 'firstName'
+        // },
+        // {
+        //     Header:"Last Name",
+        //     accessorKey: 'lastName',
+        //     cell: info => info.getValue().toUpperCase() // how to manipulate the data that is shown in table.
+        // },
+        {
+            Header: "Full Name",
+            accessorKey: "Full Name",
+            accessorFn: row => `${row.firstName} ${row.lastName}`.toUpperCase()//using accessor function to create a new column based on the other columns.
+        },
+        {
+            Header:"Email",
+            accessorKey: 'email'
+        },
+        {
+            Header:"Departmentn",
+            accessorKey: 'department'
+        },
+        {
+            Header:"Date Joined",
+            accessorKey: 'dateJoined'
+        }
+    ]
+const myDataSample = []
+for(let i = 1; i<101; i++){
+    myDataSample.push(
+        {
+            id: i,
+            firstName: "Hosein",
+            lastName: "Shakib",
+            email: "shakibhoseinkh@gmail.com",
+            department: "Tech",
+            dateJoined: "2023-09-01"
+        }
+    )
+}
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Routes>
+                <Route path = {"/"} element ={
+                      <div className="App">
+                          <header className="App-header">
+                          </header>
+                          <body>
+                            <InstallmentsPage 
+                             customerName="CustomerName"
+                             customerId = "CustomerId"
+                             numberOfInstallments = "numberOfInstallments"
+                             installment = "installment"
+                            />
+                          </body>
+                      </div>
+                }
+                />
+                <Route path = {"/persons"} element = {
+                  <Persons/>
+                }
+                />
+                <Route path = {"/ReactTable"} element = {<TableTemplate columns={columns} data = {useMemo(() => myDataSample,[])}/>}/>                    
+                <Route path = {"/Parvande"} element = {<ParvandePage/>}/>
+                <Route path = {"/PersonsReactTable"} element = {<PersonsTable/>}/>                      
+        </Routes> 
+      </> 
+  
   );
 }
 
