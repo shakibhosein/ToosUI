@@ -69,7 +69,7 @@ function TableTemplate({columns, data}){
                                     {flexRender(cell.column.columnDef.cell, cell)}
                                 </td>
                             ))}
-                            <button className = "btn btn-danger">test1</button>
+                            <button className = "btn btn-danger"><i class="bi bi-trash"></i></button>
                         </tr>
                     ))}
                 </tbody>

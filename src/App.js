@@ -2,9 +2,10 @@ import {React, useMemo} from "react";
 import InstallmentsPage from "./Pages/Installments";
 import ParvandePage from "./Pages/Parvande";
 import Persons from "./Pages/Persons"
-import TableTemplate from "./Pages/React-Table";
+import TableTemplate from "./Components/React-Table";
 import {Routes, Route} from "react-router-dom"
 import PersonsTable from "./Pages/PersonsReactTable";
+import PersonsAgGridTable from "./Pages/PersonsAgGridTable";
 
 
 const columns = [
@@ -77,7 +78,8 @@ function App() {
                 />
                 <Route path = {"/ReactTable"} element = {<TableTemplate columns={columns} data = {useMemo(() => myDataSample,[])}/>}/>                    
                 <Route path = {"/Parvande"} element = {<ParvandePage/>}/>
-                <Route path = {"/PersonsReactTable"} element = {<PersonsTable/>}/>                      
+                <Route path = {"/PersonsReactTable"} element = {<PersonsTable/>}/>
+                <Route path = {"/PersonsAgGridTable"} element = {<PersonsAgGridTable/>}/>                  
         </Routes> 
       </> 
   

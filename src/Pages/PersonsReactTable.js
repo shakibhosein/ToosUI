@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import TableTemplate from "./React-Table"
+import TableTemplate from "../Components/React-Table"
 
 const personsDataURL = "https://localhost:7256/persons/AllpersonNewMali"
 function PersonsTable(){

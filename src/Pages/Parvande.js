@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import ReactTemplate from "./React-Table"
+import ReactTemplate from "../Components/React-Table"
 
 
 export default function ParvandePage(){
