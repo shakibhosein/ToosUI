@@ -2,13 +2,14 @@ import React from "react";
 import {AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import 'ag-grid-community/styles/ag-theme-balham.css'
 
 
 export default function AgGridTemplate({data, datacolumns,actionsButtons}){
     const defaultColDef = {
         sortable:true,
         filter:true,
-        // floatingFilter: true
+        floatingFilter: true
     }
     //adding buttons components Column to colums object
     let columns = [...datacolumns,{headerName:"Actions",cellRenderer: actionsButtons}]

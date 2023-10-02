@@ -6,6 +6,9 @@ import TableTemplate from "./Components/React-Table";
 import {Routes, Route} from "react-router-dom"
 import PersonsTable from "./Pages/PersonsReactTable";
 import PersonsAgGridTable from "./Pages/PersonsAgGridTable";
+import Contracts from "./Pages/Contracts"
+import Test from "./Pages/FetchTest"
+
 
 
 const columns = [
@@ -79,7 +82,9 @@ function App() {
                 <Route path = {"/ReactTable"} element = {<TableTemplate columns={columns} data = {useMemo(() => myDataSample,[])}/>}/>                    
                 <Route path = {"/Parvande"} element = {<ParvandePage/>}/>
                 <Route path = {"/PersonsReactTable"} element = {<PersonsTable/>}/>
-                <Route path = {"/PersonsAgGridTable"} element = {<PersonsAgGridTable/>}/>                  
+                <Route path = {"/PersonsAgGridTable"} element = {<PersonsAgGridTable/>}/>
+                <Route path = {"/Contracts"} element = {<Contracts/>}/>
+                <Route path = {"/Test"} element = {<Test/>}/>                  
         </Routes> 
       </> 
   
